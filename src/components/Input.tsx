@@ -1,5 +1,6 @@
 import React from "react";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+import { FaWonSign } from "react-icons/fa6";
 
 interface InputProps {
   id: string;
@@ -25,7 +26,9 @@ const Input: React.FC<InputProps> = ({
   return (
     <div className=" relative w-full">
       {formatPrice && (
-        <span className=" absolute text-neutral-700 top-5 left-2">W</span>
+        <span className=" absolute text-neutral-700 top-5 left-2">
+          <FaWonSign />
+        </span>
       )}
       <input
         id={id}
