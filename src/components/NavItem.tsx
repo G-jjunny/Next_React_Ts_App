@@ -1,10 +1,14 @@
 import Link from "next/link";
 import React from "react";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
+import { User } from "@prisma/client";
 
-const NavItem = ({ mobile }: { mobile?: boolean }) => {
-  const { data: session, status } = useSession();
-  console.log({ session }, status);
+interface NavItemProps {
+  mobile?: boolean;
+  currentUser?: User | null;
+}
+
+const NavItem = ({ mobile, currentUser }: NavItemProps) => {
   return (
     <ul
       className={`text-md justify-center flex w-full items-center ${
@@ -25,7 +29,7 @@ const NavItem = ({ mobile }: { mobile?: boolean }) => {
       >
         <Link href={"/user"}>User</Link>
       </li>
-      {session?.user ? (
+      {currentUser ? (
         <li
           className={`py-2 text-center cursor-pointer w-full ${
             mobile ? "border-b-2" : "border-b-4"
