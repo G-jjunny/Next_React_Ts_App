@@ -11,6 +11,7 @@ interface ImageUploadProps {
 const ImageUpload = ({ onChange, value }: ImageUploadProps) => {
   const handleUpload = (result: any) => {
     console.log(result);
+    console.log(result.info.secure_url);
     onChange(result.info.secure_url);
   };
 
@@ -18,14 +19,18 @@ const ImageUpload = ({ onChange, value }: ImageUploadProps) => {
 
   return (
     <CldUploadWidget
-      onUpload={handleUpload}
+      onSuccess={(result) => {
+        handleUpload(result);
+        console.log(result);
+      }}
       uploadPreset={uploadPreset}
       options={{ maxFiles: 1 }}
     >
       {({ open }) => {
         return (
           <div
-            className=" relative flex flex-col items-center justify-center gap-4 p-20 transition border-2 border-dashed cursor-pointer hover:opacity-70 border-neutral-300 text-neutral-300"
+            className=" relative flex flex-col items-center justify-center gap-4 p-20 transition border-2 
+            border-dashed cursor-pointer hover:opacity-70 border-neutral-300 text-neutral-300"
             onClick={() => open?.()}
           >
             <TbPhotoPlus size={50} />
