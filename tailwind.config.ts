@@ -11,6 +11,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        greenAurora: "var(--green-aurora-500)",
+        skyCoral: "var(--sky-coral-500)",
       },
     },
   },

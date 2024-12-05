@@ -1,10 +1,13 @@
 "use client";
 import Button from "@/components/Button";
+import { categories } from "@/components/categories/Categories";
+import CategoryInput from "@/components/categories/CategoryInput";
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
 import ImageUpload from "@/components/ImageUpload";
 // import ImageUpload from "@/components/ImageUpload";
 import Input from "@/components/Input";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
@@ -31,10 +34,18 @@ const ProductUploadPage = () => {
   });
 
   const imageSrc = watch("imageSrc");
+  const category = watch("category");
+  const latitude = watch("latitude");
+  const longitude = watch("longitude");
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value);
   };
+
+  // 카카오맵 컴포넌트를 csr방식으로 불러옴
+  const KakaoMap = dynamic(() => import("../../../components/KakaoMap"), {
+    ssr: false,
+  });
 
   //  상품 생성 버튼
   const onSubmit: SubmitHandler<FieldValues> = (data) => {};
@@ -79,11 +90,27 @@ const ProductUploadPage = () => {
             required
           />
           <hr />
-          <div className=" grid grid-cols-1 md:gridco2 gap-3 max-h-[50vh] overflow-y-auto">
+          <div className=" grid grid-cols-1 py-2 md:grid-cols-2 xl:grid-cols-3 gap-3 max-h-[50vh] overflow-y-auto">
             {/* category */}
+            {categories.map((item) => (
+              <div key={item.label} className=" col-span-1">
+                <CategoryInput
+                  onClick={(category) => setCustomValue("category", category)}
+                  selected={category === item.path}
+                  label={item.label}
+                  icon={item.icon}
+                  path={item.path}
+                />
+              </div>
+            ))}
           </div>
           <hr />
           {/* kakaoMap */}
+          <KakaoMap
+            setCustomValue={setCustomValue}
+            latitude={latitude}
+            longitude={longitude}
+          />
           <Button label="상품 생성하기" />
         </form>
       </div>

@@ -39,13 +39,13 @@ const RegisterPage = () => {
   return (
     <section
       onSubmit={handleSubmit(onSubmit)}
-      className=" grid h-[calc(100vh_-_56px)] place-items-center"
+      className=" grid h-[calc(100vh_-_60px)] place-items-center"
     >
       <form className="flex flex-col justify-center gap-4 min-w-[350px]">
-        <h1 className="text-2xl">Register</h1>
+        <h1 className="text-2xl text-center font-semibold">회원가입</h1>
         <Input
           id="email"
-          label="Email"
+          label="이메일"
           disabled={isLoading}
           register={register}
           errors={errors}
@@ -53,7 +53,7 @@ const RegisterPage = () => {
         />
         <Input
           id="name"
-          label="Name"
+          label="이름"
           disabled={isLoading}
           register={register}
           errors={errors}
@@ -61,20 +61,22 @@ const RegisterPage = () => {
         />
         <Input
           id="password"
-          label="Password"
+          label="비밀번호"
           type="password"
           disabled={isLoading}
           register={register}
           errors={errors}
           required
         />
-        <Button label="Register" />
-        <div className=" text-center">
+        <Button label="회원가입" />
+        <div className=" text-end">
           <p className=" text-gray-400">
-            Already a member?
-            <Link href="/auth/login" className=" text-black hover:underline">
-              {" "}
-              Login
+            이미 계정이 있으신가요?{" "}
+            <Link
+              href="/auth/login"
+              className=" text-black underline hover:text-greenAurora"
+            >
+              로그인하기
             </Link>
           </p>
         </div>

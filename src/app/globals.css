@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: "Poppins";
+  src: url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap");
+  unicode-range: U+0000-007F; /* 영어 및 숫자 */
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  src: url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
+  unicode-range: U+AC00-D7AF, U+1100-11FF, U+3130-318F; /* 한글 */
+}
+:root {
+  /* sky coral */
+  --sky-coral-500: #f8496c;
+  /* green orora */
+  --green-aurora-500: #00b493;
+}
+
+body {
+  font-family: "Noto Sans KR", "Poppins", sans-serif;
+}
