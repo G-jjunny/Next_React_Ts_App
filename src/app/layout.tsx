@@ -50,8 +50,8 @@ export default async function RootLayout({
         <Navbar currentUser={currentUser} />
         {children}
         <Script
-          // strategy="beforeInteractive"
-          src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=aa6c0704ac31fc9cf5fc5675799e2dc2&libraries=services,clusterer&autoload=false`}
+          type="text/javascript"
+          src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=67d231925f9cdc49c486f87e2ab587b9&libraries=services,clusterer&autoload=false`}
         />
       </body>
     </html>

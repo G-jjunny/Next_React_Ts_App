@@ -14,14 +14,14 @@ const KakaoMap = ({
   longitude,
   detailPage = false,
 }: KakaoMapProps) => {
-  const handlClick = (mouseEvent) => {
-    console.log(mouseEvent);
-  };
+  // const handlClick = (mouseEvent) => {
+  //   console.log(mouseEvent);
+  // };
   return (
     <Map
       center={{ lat: 33.5563, lng: 126.79581 }}
       style={{ width: "100%", height: "360px" }}
-      onClick={(_, mouseEvent) => handlClick(mouseEvent)}
+      // onClick={(_, mouseEvent) => handlClick(mouseEvent)}
     >
       <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
         <div style={{ color: "#000" }}>Hello World!</div>
