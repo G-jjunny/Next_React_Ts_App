@@ -7,12 +7,15 @@ import Heading from "@/components/Heading";
 import ImageUpload from "@/components/ImageUpload";
 // import ImageUpload from "@/components/ImageUpload";
 import Input from "@/components/Input";
+import axios from "axios";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 const ProductUploadPage = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const {
     register,
@@ -48,7 +51,18 @@ const ProductUploadPage = () => {
   });
 
   //  상품 생성 버튼
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {};
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    setIsLoading(true);
+    axios
+      .post("/api/products", data)
+      .then((response) => {
+        router.push(`/products/${response.data.id}`);
+      })
+      .catch((error) => console.log(error))
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
   return (
     <Container>
       <div className=" max-w-screen-lg mx-auto">
