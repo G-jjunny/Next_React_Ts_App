@@ -70,7 +70,13 @@ const Categories = () => {
   return (
     <div className=" flex flex-row items-center justify-between pt-4 overflow-x-auto">
       {categories.map((item) => (
-        <CategoriesBox key={item.label} />
+        <CategoriesBox
+          key={item.label}
+          label={item.label}
+          path={item.path}
+          icon={item.icon}
+          selected={category === item.path}
+        />
       ))}
     </div>
   );
