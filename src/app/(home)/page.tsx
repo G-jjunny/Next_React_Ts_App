@@ -5,6 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import getCurrentUser from "../actions/getCurrentUser";
 import FloatingButton from "@/components/FloatingButton";
 import { FaPlus } from "react-icons/fa";
+import Categories from "@/components/categories/Categories";
 
 interface HomeProps {
   searchParams: ProductParams;
@@ -14,10 +15,12 @@ export default async function Home({ searchParams }: HomeProps) {
   const products = await getProducts(searchParams);
   const currentUser = await getCurrentUser();
 
-  console.log(products);
+  // console.log(products);
   return (
     <Container>
       {/* Category */}
+      <Categories />
+
       {products?.data.length === 0 ? (
         <EmptyState />
       ) : (

@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import getCurrentUser from "./actions/getCurrentUser";
 import Script from "next/script";
+import ToastProvider from "@/components/ToastProvider";
 // import { Noto_Sans_KR, Poppins } from "next/font/google";
 
 // const geistSans = localFont({
@@ -48,6 +49,7 @@ export default async function RootLayout({
         //   antialiased`}
       >
         <Navbar currentUser={currentUser} />
+        <ToastProvider />
         {children}
         <Script
           type="text/javascript"

@@ -2,6 +2,7 @@ import { User } from "@prisma/client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useMemo } from "react";
+import { toast } from "react-toastify";
 
 interface UseFavorite {
   productId: string;
@@ -21,7 +22,7 @@ const useFavorite = ({ productId, currentUser }: UseFavorite) => {
 
     // currentUser가 아닌 경우 로그인 페이지로 이동
     if (!currentUser) {
-      alert("찜하기는 로그인후에 사용 가능합니다.");
+      toast.warn("먼저 로그인을 해주세요.");
       return router.push("/login");
     }
     try {
@@ -33,8 +34,10 @@ const useFavorite = ({ productId, currentUser }: UseFavorite) => {
       }
       await request(); // 처리가 완료될때까지
       router.refresh(); // 완료후 refresh
+      toast.success("성공했습니다.");
     } catch (error) {
       console.log(error);
+      toast.error("실패했습니다.");
     }
   };
 
