@@ -27,9 +27,9 @@ const useFavorite = ({ productId, currentUser }: UseFavorite) => {
     try {
       let request;
       if (hasFavorite) {
-        request = () => axios.delete(`/api/favorite/${productId}`);
+        request = () => axios.delete(`/api/favorites/${productId}`);
       } else {
-        request = () => axios.post(`/api/favorite/${productId}`);
+        request = () => axios.post(`/api/favorites/${productId}`);
       }
       await request(); // 처리가 완료될때까지
       router.refresh(); // 완료후 refresh
