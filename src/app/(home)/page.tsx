@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import getProducts, { ProductParams } from "../actions/getProducts";
 import EmptyState from "@/components/EmptyState";
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "@/components/products/ProductCard";
 import getCurrentUser from "../actions/getCurrentUser";
 import FloatingButton from "@/components/FloatingButton";
 import { FaPlus } from "react-icons/fa";
