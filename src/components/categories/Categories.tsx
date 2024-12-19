@@ -66,7 +66,6 @@ export const categories = [
 const Categories = () => {
   const params = useSearchParams();
   const category = params?.get("category");
-  console.log(category);
   return (
     <div className=" flex flex-row items-center justify-between pt-4 overflow-x-auto">
       {categories.map((item) => (
