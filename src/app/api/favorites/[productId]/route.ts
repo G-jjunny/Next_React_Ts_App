@@ -1,5 +1,6 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { NextResponse } from "next/server";
+import prisma from "@/helpers/prismadb";
 
 interface Params {
   productId: string;

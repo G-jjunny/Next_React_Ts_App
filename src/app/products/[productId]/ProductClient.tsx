@@ -43,7 +43,7 @@ const ProductClient = ({ product, currentUser }: ProductClientProps) => {
             />
             <div>
               <KakaoMap
-                datailPage
+                detailPage
                 latitude={product.latitude}
                 longitude={product.longitude}
               />
