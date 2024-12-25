@@ -3,7 +3,7 @@ import React from "react";
 import User from "./User";
 
 interface ContactsProps {
-  users: TUserWithChat;
+  users: TUserWithChat[];
   currentUser: TUserWithChat;
   setLayout: (layout: boolean) => void;
   setReceiver: (receiver: {
@@ -23,7 +23,18 @@ const Contacts = ({
     <div className=" w-full overflow-auto h-[calc(100vh_-_56px)] border-[1px]">
       <h1 className=" m-4 text-2xl font-semibold">Chat</h1>
       <hr />
-      <div className=" flex flex-col"></div>
+      <div className=" flex flex-col">
+        {users.length > 0 &&
+          users
+            .filter((user) => user.id !== currentUser?.id)
+            .map((user) => {
+              return (
+                <div key={user.id} onClick={() => setLayout(true)}>
+                  <User user={user} currentUserId={currentUser?.id} />
+                </div>
+              );
+            })}
+      </div>
     </div>
   );
 };
