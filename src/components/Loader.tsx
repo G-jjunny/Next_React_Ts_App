@@ -5,7 +5,7 @@ import { RotatingLines } from "react-loader-spinner";
 const Loader = () => {
   return (
     <div
-      className={`h-[60vh] max-w-6xl mx-auto w-full flex-row items-center justify-center py-40`}
+      className={`h-[60vh] max-w-6xl mx-auto w-full flex flex-row items-center justify-center py-40`}
     >
       <RotatingLines
         strokeColor="gray"
